@@ -1,0 +1,114 @@
+/* src/components/Layout.css */
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* ─── Page Eyebrow: Hakkında ve İş Birliği sayfaları için minimal üst bant ─── */
+.page-eyebrow {
+  width: 100%;
+  background-color: #F5F5F5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 var(--container-padding, 40px);
+}
+
+.page-eyebrow span {
+  font-size: 11px;
+  font-weight: 600;
+  color: #676767;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* Footer style update for brand alignment */
+.footer {
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  padding: 60px 0 30px 0;
+  color: var(--color-black);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 320px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-logo-img {
+  height: 36px;
+  width: auto;
+  align-self: flex-start;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social-icon {
+  object-fit: contain;
+  opacity: 1;
+  filter: brightness(0);
+  transition: var(--transition);
+}
+
+.footer-socials a img[alt="YouTube"] {
+  height: 20px;
+  width: 28px;
+}
+
+.footer-socials a img[alt="Instagram"] {
+  height: 20px;
+  width: 20px;
+}
+
+.footer-social-icon:hover {
+  opacity: 0.7;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: var(--color-black);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: var(--color-dark-grey);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--color-border);
+  padding-top: 20px;
+  text-align: center;
+  color: var(--color-dark-grey);
+  font-size: 13px;
+}

@@ -1,0 +1,602 @@
+/* src/pages/Home.css */
+
+/* Hero Section */
+.hero {
+  background-color: var(--color-white);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero h6 {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-black);
+  margin-bottom: 12px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.hero h1 {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-dark-grey);
+  max-width: 720px;
+  margin: 0 auto 32px auto;
+}
+
+/* Neden Bicylium Section */
+.features {
+  background-color: var(--color-white);
+  text-align: center;
+  padding: 60px 0;
+}
+
+.features h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 42px;
+}
+
+.feature-card {
+  background-color: var(--color-light-grey);
+  padding: 40px 24px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 250px;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.feature-card:hover {
+  border-color: var(--color-mid-grey);
+}
+
+.feature-card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+.feature-card-value {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 20px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-black);
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: var(--color-dark-grey);
+  line-height: 1.5;
+}
+
+/* Main custom section */
+.customization-section {
+  padding: 80px 0;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-light-grey);
+}
+
+.customization-header {
+  margin-bottom: 48px;
+}
+
+.customization-header h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.customization-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.customization-sub h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.customization-sub p {
+  color: var(--color-dark-grey);
+  font-size: 16px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.footer-socials img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0); /* Siyah renk için */
+  opacity: 1;
+  transition: var(--transition);
+}
+
+.footer-socials a:hover img {
+  opacity: 0.7;
+}
+
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-links a {
+  color: var(--color-black);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--color-dark-grey);
+}
+
+.customization-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.bike-display-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.bike-title {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--color-black);
+}
+
+.bike-image-box {
+  background-color: var(--color-light-grey);
+  border-radius: 8px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.bike-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.category-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.category-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-btn {
+  background-color: var(--color-light-grey);
+  color: var(--color-black);
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+  width: 100%;
+}
+
+.category-btn:hover {
+  background-color: var(--color-mid-grey);
+}
+
+.category-btn.active {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.category-params-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 8px 0 16px 0;
+  background-color: transparent;
+}
+
+.param-tag {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--color-black);
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Products grid */
+.products-section {
+  padding: 80px 0;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-light-grey);
+  overflow-x: hidden;
+}
+
+.products-section .container {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.products-header {
+  flex: 0 0 240px;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.products-header h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.products-header p {
+  color: var(--color-dark-grey);
+  font-size: 16px;
+}
+
+.products-grid {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  /* Allow the grid to show overflow so the fade card isn't abruptly clipped, 
+     or clip at the section level instead */
+  overflow: visible;
+}
+
+.product-card {
+  flex: 0 0 160px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.product-image-container {
+  background-color: var(--color-light-grey);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: var(--border-radius);
+}
+
+.product-image-container img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.product-details {
+  padding: 16px 0;
+  text-align: center;
+}
+
+.product-category-label {
+  font-size: 12px;
+  color: var(--color-dark-grey);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.product-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.4;
+}
+
+.product-card.fade-card {
+  position: relative;
+  /* Ensure the fade card stays fully visible in the flex flow to prevent it from being dropped or wrapped */
+}
+
+@media (min-width: 992px) {
+  .product-card.fade-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    pointer-events: none;
+  }
+}
+
+/* Service Randevu */
+.service-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--color-light-grey);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.service-image-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.service-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.service-texts h3 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+.service-texts p {
+  font-size: 16px;
+  color: var(--color-dark-grey);
+  line-height: 1.6;
+}
+
+/* Collaboration CTA */
+.collab-cta {
+  background-color: var(--color-white);
+  padding: 80px 0;
+  text-align: center;
+  border-top: 1px solid var(--color-light-grey);
+}
+
+.collab-cta h6 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-dark-grey);
+  margin-bottom: 8px;
+}
+
+.collab-cta h2 {
+  font-size: 64px;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.collab-cta p {
+  font-size: 18px;
+  color: var(--color-dark-grey);
+  max-width: 720px;
+  margin: 0 auto 32px auto;
+  line-height: 1.6;
+}
+
+/* Blog Section */
+.blog-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--color-light-grey);
+}
+
+.blog-section .container {
+  max-width: 1320px; /* Genişletilmiş alan */
+}
+
+.blog-section h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.blog-tag {
+  background-color: #B8F986;
+  color: var(--color-black);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.blog-image-box {
+  background-color: var(--color-light-grey);
+  height: 240px;
+  border-radius: 0;
+  margin-bottom: 16px;
+}
+
+.blog-date {
+  font-size: 12px;
+  color: var(--color-dark-grey);
+  margin-bottom: 8px;
+}
+
+.blog-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.blog-card p {
+  font-size: 14px;
+  color: var(--color-dark-grey);
+  line-height: 1.5;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+  background-color: var(--color-white);
+  padding: 80px 0;
+}
+
+.newsletter-section .container {
+  max-width: 1320px;
+}
+
+.newsletter-grid {
+  background-color: var(--color-black);
+  padding: 60px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.newsletter-texts h6 {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: #a0a0a0;
+  margin-bottom: 12px;
+}
+
+.newsletter-texts h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 12px;
+}
+
+.newsletter-texts p {
+  color: #e0e0e0;
+  font-size: 16px;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 8px 0;
+  border: none;
+  border-bottom: 1px solid var(--color-white);
+  background-color: transparent;
+  color: var(--color-white);
+  font-size: 16px;
+  border-radius: 0;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: #a0a0a0;
+}
+
+.newsletter-btn {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-weight: 600;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 14px;
+}
+
+.newsletter-btn:hover {
+  background-color: #e0e0e0;
+}
+
+@media (max-width: 992px) {
+  .products-section .container {
+    display: block;
+  }
+  .products-header {
+    margin-bottom: 40px;
+  }
+  .products-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .features-grid, .customization-grid, .service-grid, .blog-grid, .newsletter-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+  .category-params-list {
+    grid-column: span 1;
+  }
+}

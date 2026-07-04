@@ -1,0 +1,110 @@
+/* src/pages/Contact.css */
+
+.contact-page {
+  background-color: var(--color-white);
+}
+
+.contact-header {
+  padding: 60px 0 20px 0;
+  text-align: left;
+}
+
+.contact-header h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 16px;
+}
+
+.contact-header p {
+  font-size: 16px;
+  color: var(--color-black);
+  line-height: 1.6;
+}
+
+.contact-content {
+  padding: 20px 0 80px 0;
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 30px;
+}
+
+/* Helper utilities for grid alignment */
+.span-full {
+  grid-column: span 2;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field-group label {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.form-field-group input, .form-field-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--color-black);
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-main);
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.form-field-group input:focus, .form-field-group textarea:focus {
+  outline: none;
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 3px rgba(255, 67, 11, 0.1);
+}
+
+.contact-submit-row {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+
+
+.status-message {
+  padding: 15px;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+
+.status-message.success {
+  background-color: rgba(42, 192, 0, 0.1);
+  color: var(--color-green);
+  border: 1px solid rgba(42, 192, 0, 0.2);
+}
+
+.status-message.error {
+  background-color: rgba(192, 0, 0, 0.1);
+  color: var(--color-red);
+  border: 1px solid rgba(192, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .span-full {
+    grid-column: span 1;
+  }
+  .contact-submit-row {
+    grid-column: span 1;
+  }
+}

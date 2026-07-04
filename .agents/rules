@@ -1,0 +1,116 @@
+---
+trigger: always_on
+---
+
+# Frontend Workspace Rules
+
+Activation: Always On
+
+Bu dosya, bu workspace içindeki tüm frontend çalışmalarında
+Agent’ın uyması gereken proje özel kuralları tanımlar.
+
+---
+
+## 1. Kullanılacak Teknoloji Stack’i
+
+- React veya Next.js kullanılacaktır
+- **CSS kararı: Vanilla CSS** — her bileşen için ayrı bir `.css` dosyası kullanılır
+  (örn. `Header.jsx` → `Header.css`). Global değişkenler `src/index.css`
+  içinde tutulur; bileşen CSS'leri yalnızca o bileşene özgüdür.
+- Tailwind CSS KULLANILMAZ
+- Inline CSS veya styled-components KULLANILMAZ
+- Harici UI library (MUI, AntD, shadcn/ui vb.) KULLANILMAZ
+
+---
+
+## 2. Bileşen (Component) Kuralları
+
+- SADECE function component kullanılacaktır
+- Class component YASAKTIR
+- Her bileşen:
+  - Tek sorumluluk ilkesine uymalıdır
+  - Yeniden kullanılabilir olacak şekilde yazılmalıdır
+  - Açık ve anlamlı isimlendirme içermelidir
+
+---
+
+## 3. Dosya ve Klasör Disiplini
+
+- Her bileşen ayrı dosyada tanımlanmalıdır
+- Büyük bileşenler alt parçalara bölünmelidir
+- `index.tsx` içinde karmaşık logic bulunamaz
+- Dosya isimleri:
+  - `PascalCase.tsx` (component)
+  - `kebab-case.md` (dokümantasyon)
+
+---
+
+## 4. Tailwind Kullanım Standartları
+
+- Aşırı uzun `className` zincirleri YASAKTIR
+- Tekrarlanan class’lar için:
+  - yardımcı fonksiyon
+  - veya ortak bileşen
+  tercih edilmelidir
+
+- Blur ve shadow:
+  - Glassmorphism UI’da ölçülü kullanılmalıdır
+  - Performansı düşürecek yoğunlukta olmamalıdır
+
+---
+
+## 5. Responsive & UX Kuralları
+
+- Mobile-first yaklaşım zorunludur
+- Tüm bileşenler:
+  - Mobil
+  - Tablet
+  - Desktop
+  ekranlarında çalışmalıdır
+
+- Hover, focus ve active state’ler eksiksiz olmalıdır
+
+---
+
+## 6. Scope Disiplini
+
+Agent:
+- Bu dosyada tanımlı olmayan ek teknoloji öneremez
+- Kapsam dışı refactor yapamaz
+- “İstersen bunu da yapabilirim” önerisinde bulunamaz
+
+SADECE istenen görevi yerine getirir.
+
+---
+
+## 7. Belirsizlik Durumu
+
+Eğer:
+- İstek eksikse
+- Çelişkili bir durum varsa
+
+Agent:
+1. DURUR
+2. NETLEŞTİRME SORAR
+3. Cevap gelene kadar ilerlemez
+
+---
+
+Bu kuralların ihlali, proje standartlarının ihlali sayılır.
+
+
+# BICYLIUM PROJECT RULES & GOVERNANCE
+
+## 1. CODING STANDARDS
+- **Code Integrity:** All code must be functional, clean, and commented where necessary.
+- **No Broken Builds:** Never leave the codebase in a broken state. If a step fails, revert or fix immediately before proceeding.
+- **Tech Stack Compliance:** Stick strictly to the defined technology stack for Bicylium (e.g., no introducing new frameworks or libraries without clear user request).
+
+## 2. STRICT OPERATIONAL CONSTRAINTS (Inherited)
+- [cite_start]**Zero Autonomy on Dependencies:** DO NOT run `npm install`, `pip install`, or modify `package.json`/`requirements.txt` without explicit confirmation[cite: 3].
+- [cite_start]**No "Cleanup":** Do not delete "unused" files or refactor legacy code unless that is the specific task assigned[cite: 4, 7].
+- **Path Safety:** Write only to the specific directories assigned. [cite_start]Never attempt to access or modify system configuration files outside the project root[cite: 6].
+
+## 3. INTERACTION PROTOCOL
+- [cite_start]**Prompt Before Destruction:** If a code change involves overwriting a significant file or deleting a directory, you must issue a warning and wait for confirmation[cite: 3].
+- **One Task at a Time:** Do not combine multiple unrelated features or fixes in a single generation. Keep changes atomic.
