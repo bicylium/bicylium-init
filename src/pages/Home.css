@@ -605,4 +605,25 @@
   .category-params-list {
     grid-column: span 1;
   }
+  .newsletter-grid {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsletter-grid {
+    padding: 32px 24px;
+  }
+  .newsletter-texts h2 {
+    font-size: 36px;
+  }
+  .newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .newsletter-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
