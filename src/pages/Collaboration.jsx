@@ -77,7 +77,7 @@ const Collaboration = () => {
             <p style={{ color: 'var(--color-dark-grey)', marginBottom: '24px' }}>
               {t('collaboration.presDesc')}
             </p>
-            <button className="btn btn-primary" onClick={() => setShowSlides(!showSlides)}>
+            <button className="btn btn-accent" onClick={() => setShowSlides(!showSlides)}>
               {t('collaboration.presBtn')}
             </button>
 

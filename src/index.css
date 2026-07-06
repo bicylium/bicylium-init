@@ -4,7 +4,7 @@
   --color-red: #C00000;
   --color-orange: #FF430B;
   --color-green: #2AC000;
-  --color-light-green: #D9FD9F;
+  --color-light-green: #B8F986;
   --color-light-grey: #F5F5F5;
   --color-mid-grey: #E5E5E5;
   --color-dark-grey: #676767;
@@ -171,6 +171,18 @@ section {
 .btn-outline:hover {
   background-color: var(--color-black);
   color: var(--color-white);
+}
+
+.btn-accent {
+  background-color: var(--color-light-green);
+  color: var(--color-black);
+  border: 2px solid var(--color-light-green);
+}
+
+.btn-accent:hover {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border-color: var(--color-green);
 }
 
 @media (max-width: 992px) {
