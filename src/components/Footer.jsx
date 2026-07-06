@@ -1,10 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import logo from '../../img/Bicylium Logo.svg';
 import youtubeIcon from '../../icons/youtube.svg';
 import instagramIcon from '../../icons/Instagram.svg';
 import './Layout.css';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="footer">
       <div className="container">
@@ -22,15 +24,15 @@ const Footer = () => {
           </div>
           
           <div className="footer-links">
-            <a href="/hakkinda">Hakkında</a>
-            <a href="/is-birligi">İş Birliği</a>
-            <a href="/blog">Blog</a>
-            <a href="/iletisim">İletişim</a>
+            <a href="/hakkinda">{t('footer.about')}</a>
+            <a href="/is-birligi">{t('footer.collaboration')}</a>
+            <a href="/blog">{t('footer.blog')}</a>
+            <a href="/iletisim">{t('footer.contact')}</a>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>Tüm Hakları Saklıdır 2026</p>
+          <p>{t('footer.rights')}</p>
         </div>
       </div>
     </footer>

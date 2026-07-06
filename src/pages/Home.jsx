@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { contentfulClient } from '../contentful';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 // SVG imports from project folders
 import uyumMatrisiIcon from '../../icons/uyum_matrisi.svg';
 import daimiDestekIcon from '../../icons/daimi_destek.svg';
-import youtubeIcon from '../../icons/youtube.svg';
-import instagramIcon from '../../icons/Instagram.svg';
 
 // Image imports
 import trail1Img from '../../img/cannondale-trail-1-tiger-shark-2.webp';
@@ -16,7 +17,22 @@ import redJerseyImg from '../../img/red-jersey-vittoria.webp';
 import framesetImg from '../../img/Frameset_FS120-6_1200.png';
 
 const Home = () => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState('Geometri');
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    contentfulClient.getEntries({ content_type: 'blogPost', limit: 3 })
+      .then((response) => {
+        setPosts(response.items);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('İçerik yüklenirken hata:', error);
+        setLoading(false);
+      });
+  }, []);
 
   const parameterData = {
     'Kadro Seti': ['Kadro Tipi', 'Maşa', 'Kablo Yolu', 'Kadro boyu', 'Furş takımı'],
@@ -34,39 +50,37 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="container">
-          <h6>Bisikletçilerin Dijital Evi’ne</h6>
-          <h1>Hoşgeldiniz</h1>
-          <p className="hero-subtitle">
-            Bicylium, Türkiye'deki yerel bisiklet dükkanlarını dijital dünyaya taşıyan ve onları bisiklet kullanıcıları ile buluşturan dikey, çok paydaşlı bir ekosistem platformudur.
-          </p>
-          <a href="/hakkinda" className="btn btn-outline">Hakkında</a>
+          <h6>{t('home.heroPretitle')}</h6>
+          <h1>{t('home.heroWelcome')}</h1>
+          <p className="hero-subtitle">{t('home.heroSubtitle')}</p>
+          <a href="/hakkinda" className="btn btn-outline">{t('home.btnAbout')}</a>
         </div>
       </section>
 
       {/* Neden Bicylium? */}
       <section className="features">
         <div className="container">
-          <h2>Neden Bicylium?</h2>
+          <h2>{t('home.whyBicylium')}</h2>
           <div className="features-grid">
             <div className="feature-card">
               <img src={uyumMatrisiIcon} alt="Uyumluluk" className="feature-card-icon" />
-              <h3>Uyumluluk Matrisi</h3>
-              <p>Yanlış siparişlerden kaynaklı zararların önüne geçer.</p>
+              <h3>{t('home.compatibility')}</h3>
+              <p>{t('home.compatibilityDesc')}</p>
             </div>
             
             <div className="feature-card">
               <span className="feature-card-value">%0</span>
-              <h3>Komisyonsuz</h3>
-              <p>Kazancınız arttıkça platform katılım bedeli sabit kalır.</p>
+              <h3>{t('home.noCommission')}</h3>
+              <p>{t('home.noCommissionDesc')}</p>
             </div>
             
             <div className="feature-card">
               <img src={daimiDestekIcon} alt="Daimi Destek" className="feature-card-icon" />
-              <h3>Daimi Destek</h3>
-              <p>Dayanışma ekonomisi olarak sürecin her anında yanınızda.</p>
+              <h3>{t('home.support')}</h3>
+              <p>{t('home.supportDesc')}</p>
             </div>
           </div>
-          <a href="/is-birligi" className="btn btn-primary">Daha fazla</a>
+          <a href="/is-birligi" className="btn btn-primary">{t('home.btnMore')}</a>
         </div>
       </section>
 
@@ -74,10 +88,10 @@ const Home = () => {
       <section className="customization-section">
         <div className="container">
           <div className="customization-header">
-            <h2>Bisiklet mağazanızı ve atölyenizi dijitale taşıyın</h2>
+            <h2>{t('home.digitalize')}</h2>
             <div className="customization-sub">
-              <h4>Bisiklet için özelleştirildi</h4>
-              <p>Bisiklet dünyasının kendine özgü özellikleri için yapılandırılmış gelişmiş ürün arama ve parça uyum mimarisi</p>
+              <h4>{t('home.customized')}</h4>
+              <p>{t('home.customizedDesc')}</p>
             </div>
           </div>
           
@@ -118,8 +132,8 @@ const Home = () => {
       <section className="products-section">
         <div className="container">
           <div className="products-header">
-            <h2>Gelişmiş ürün kategorisi</h2>
-            <p>Sayısız ekipman ve aksesuarlara özel olarak hazırlanmış ürün kategorileri.</p>
+            <h2>{t('home.advancedProducts')}</h2>
+            <p>{t('home.advancedProductsDesc')}</p>
           </div>
           
           <div className="products-grid">
@@ -175,10 +189,8 @@ const Home = () => {
             </div>
             
             <div className="service-texts">
-              <h3>Topluluğumuzun gücünü<br/>üretime çevirelim</h3>
-              <p>
-                Bicylium sadece bir ürün satış platformu değildir. Ağımız genişledikçe topluluk katmanı güçlenerek üretim hedeflerimizin yolunu açacak ve sektörümüze pozitif katkı sağlayacaktır.
-              </p>
+              <h3 style={{whiteSpace: 'pre-line'}}>{t('home.communityPower')}</h3>
+              <p>{t('home.communityPowerDesc')}</p>
             </div>
           </div>
         </div>
@@ -187,49 +199,48 @@ const Home = () => {
       {/* İş Birliği CTA */}
       <section className="collab-cta">
         <div className="container">
-          <h6>Ekosistemin Kurucu Mağazalarından Biri Olun</h6>
-          <h2>İş Birliği</h2>
-          <p>
-            Bicylium’un iş birliği prensipleri, sistemin yapısı ve işleyişi hakkında daha fazla bilgi edinin. Sunumu inceleyin ve ankete katılın
-          </p>
-          <a href="/is-birligi" className="btn btn-primary">Daha fazla</a>
+          <h6>{t('home.collabCtaPretitle')}</h6>
+          <h2>{t('home.collabCtaTitle')}</h2>
+          <p>{t('home.collabCtaDesc')}</p>
+          <a href="/is-birligi" className="btn btn-primary">{t('home.btnMore')}</a>
         </div>
       </section>
 
       {/* Blog Section */}
       <section className="blog-section">
         <div className="container">
-          <h2>Blog</h2>
+          <h2>{t('blog.title')}</h2>
           <div className="blog-grid">
-            <div className="blog-card">
-              <div className="blog-tags">
-                <span className="blog-tag">Video</span>
-              </div>
-              <div className="blog-image-box"></div>
-              <div className="blog-date">27.08.26'de yükledi</div>
-              <h3>Yol , Şimdi YouTube'da Yayında!</h3>
-              <p>Hepimizin bir yol'u var, bu kısa metrajlı belgesel sayesinde onu anlamaya biraz daha yaklaşıyoruz</p>
-            </div>
-
-            <div className="blog-card">
-              <div className="blog-tags">
-                <span className="blog-tag">Podcast</span>
-              </div>
-              <div className="blog-image-box"></div>
-              <div className="blog-date">18.06.26'de yükledi</div>
-              <h3>Bisiklet Günlüğü Podcasti'nin 14. Bölümü Yüklendi</h3>
-              <p>Podcast'in bu bölümünde müthiş bir konuk ağırlıyoruz, duayen bisikletçi Gürsel Akay bizlere akıl almaz hikayelerle dolu bir saat yaşatıyor.</p>
-            </div>
-
-            <div className="blog-card">
-              <div className="blog-tags">
-                <span className="blog-tag">İnceleme</span>
-              </div>
-              <div className="blog-image-box"></div>
-              <div className="blog-date">04.05.26'da yükledi</div>
-              <h3>'Kadro Boyu' gizemini Çözüyoruz</h3>
-              <p>Kadro boyu ile ilgili merak ettiğiniz tüm detayları incelemeye aldık ve bu makaleyi okuduktan sonra kadro boyları bir daha aklınızı karıştırmayacak.</p>
-            </div>
+            {loading ? (
+              <p style={{ color: '#aaa', gridColumn: '1 / -1', textAlign: 'center' }}>{t('blog.loading')}</p>
+            ) : posts.length > 0 ? (
+              posts.map(post => {
+                const { baslik, ozet, goruntu, yazar } = post.fields;
+                const date = new Date(post.sys.createdAt).toLocaleDateString('tr-TR', { day: '2-digit', month: '2-digit', year: '2-digit' });
+                const imageUrl = goruntu?.fields?.file?.url;
+                
+                return (
+                  <Link to={`/blog/${post.sys.id}`} className="blog-card" key={post.sys.id} style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column' }}>
+                    <div className="blog-tags">
+                      <span className="blog-tag">{t('blog.article')}</span>
+                    </div>
+                    {imageUrl ? (
+                      <div className="blog-image-box" style={{ backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+                    ) : (
+                      <div className="blog-image-box"></div>
+                    )}
+                    <div className="blog-date">{t('blog.uploadedBy', { date, author: yazar?.fields?.isim || 'Bicylium' })}</div>
+                    <h3>{baslik}</h3>
+                    <p>{ozet}</p>
+                  </Link>
+                );
+              })
+            ) : (
+              <p style={{ color: '#aaa', gridColumn: '1 / -1', textAlign: 'center' }}>{t('blog.noContent')}</p>
+            )}
+          </div>
+          <div className="blog-view-all">
+            <a href="/blog" className="btn btn-outline">{t('home.viewAll')}</a>
           </div>
         </div>
       </section>
@@ -239,14 +250,37 @@ const Home = () => {
         <div className="container">
           <div className="newsletter-grid">
             <div className="newsletter-texts">
-              <h6>Kayıt Olun</h6>
-              <h2>Haber alın</h2>
-              <p>Kampanyalar, indirimler ve yenilikleri kaçırmayın</p>
+              <h6>{t('home.newsletterPretitle')}</h6>
+              <h2>{t('home.newsletterTitle')}</h2>
+              <p>{t('home.newsletterDesc')}</p>
             </div>
             
-            <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-              <input type="email" className="newsletter-input" required />
-              <button type="submit" className="newsletter-btn">Katıl</button>
+            <form 
+              className="newsletter-form" 
+              name="newsletter" 
+              data-netlify="true" 
+              netlify-honeypot="bot-field"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                if (formData.get('bot-field')) return; // Honeypot
+                
+                fetch("/", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                  body: new URLSearchParams(formData).toString()
+                }).then(() => {
+                  alert(t('home.newsletterSuccess'));
+                  e.target.reset();
+                }).catch(err => console.error(err));
+              }}
+            >
+              <input type="hidden" name="form-name" value="newsletter" />
+              <div style={{ display: 'none' }}>
+                <input name="bot-field" />
+              </div>
+              <input type="email" name="email" className="newsletter-input" required placeholder={t('home.newsletterPlaceholder')} />
+              <button type="submit" className="newsletter-btn">{t('home.newsletterBtn')}</button>
             </form>
           </div>
         </div>

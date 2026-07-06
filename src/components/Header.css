@@ -1,6 +1,6 @@
 .header {
-  background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-mid-grey);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -9,7 +9,7 @@
 }
 
 [data-theme='dark'] .header {
-  background-color: rgba(15, 23, 42, 0.9);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .header-container {
@@ -36,11 +36,12 @@
 }
 
 .nav a {
-  color: var(--color-text-main);
+  color: var(--color-black);
   font-weight: 500;
   font-size: 1rem;
   position: relative;
   padding: 8px 0;
+  text-decoration: none;
 }
 
 .nav a::after {
@@ -50,7 +51,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--color-accent);
+  background-color: var(--color-black);
   transition: var(--transition);
 }
 
@@ -61,26 +62,25 @@
 .lang-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
   background: none;
-  border: 1px solid var(--color-border);
-  padding: 6px 12px;
-  border-radius: 20px;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  color: var(--color-text-main);
-  font-weight: 600;
   transition: var(--transition);
+  border-radius: 50%;
 }
 
 .lang-btn:hover {
-  background-color: var(--color-surface);
-  border-color: var(--color-text-main);
+  opacity: 0.8;
+  transform: scale(1.05);
 }
 
 .flag-icon {
-  width: 20px;
-  height: auto;
-  border-radius: 2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .hamburger {
@@ -98,8 +98,20 @@
 .hamburger .line {
   width: 100%;
   height: 2px;
-  background-color: var(--color-text-main);
+  background-color: var(--color-black);
   transition: var(--transition);
+}
+
+.hamburger.active .line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
@@ -109,13 +121,14 @@
 
   .nav {
     position: fixed;
-    top: 0;
+    top: 80px;
     right: -100%;
-    width: 250px;
-    height: 100vh;
-    background-color: var(--color-surface);
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: var(--color-white);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 40px;
     gap: 40px;
     box-shadow: -4px 0 10px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
@@ -128,4 +141,60 @@
   .lang-btn {
     margin-top: 20px;
   }
+}
+
+.lang-dropdown-wrapper {
+  position: relative;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-mid-grey);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 120px;
+  z-index: 102;
+}
+
+[data-theme='dark'] .lang-dropdown {
+  background-color: #1a1a1a;
+  border-color: #333;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--color-black);
+  transition: var(--transition);
+}
+
+.lang-option:hover {
+  background-color: var(--color-light-grey);
+}
+
+[data-theme='dark'] .lang-option:hover {
+  background-color: #333;
+}
+
+.flag-icon-small {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
 }

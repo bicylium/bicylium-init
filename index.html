@@ -11,10 +11,40 @@
   <meta name="keywords"
     content="bisiklet, bisiklet tamiri, yerel bisiklet dükkanı, bisiklet yedek parça, bisiklet servisi, bisiklet aksesuarları, adil ticaret, bicylium" />
   <meta name="author" content="Bicylium" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bicylium.com/" />
+  <meta property="og:title" content="Bicylium - Türkiye'nin Bisiklet Platformu" />
+  <meta property="og:description" content="Bicylium, yerel bisiklet mağaza ve atölyelerini dijital dünyayla buluşturan çok paydaşlı dikey e-ticaret ve servis randevu platformudur." />
+  <meta property="og:image" content="/favicon.svg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://bicylium.com/" />
+  <meta property="twitter:title" content="Bicylium - Türkiye'nin Bisiklet Platformu" />
+  <meta property="twitter:description" content="Bicylium, yerel bisiklet mağaza ve atölyelerini dijital dünyayla buluşturan çok paydaşlı dikey e-ticaret ve servis randevu platformudur." />
+  <meta property="twitter:image" content="/favicon.svg" />
 </head>
 
 <body>
   <div id="root"></div>
+  
+  <!-- Netlify Forms Build-Time Detection Dummies -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="text" name="shopName" />
+    <input type="text" name="location" />
+    <input type="tel" name="phone" />
+    <input type="email" name="email" />
+    <input type="text" name="subject" />
+    <textarea name="message"></textarea>
+  </form>
+
+  <form name="newsletter" netlify netlify-honeypot="bot-field" hidden>
+    <input type="email" name="email" />
+  </form>
+
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

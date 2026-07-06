@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Collaboration.css';
 
 const Collaboration = () => {
+  const { t } = useTranslation();
   const [showSlides, setShowSlides] = useState(false);
 
   return (
@@ -9,75 +11,82 @@ const Collaboration = () => {
 
       <div className="container">
         <section className="collab-content">
-          
+
           {/* İş Birliği Prensipleri */}
           <div className="collab-section">
-            <h3>İş Birliği Prensipleri</h3>
+            <h3>{t('collaboration.title1')}</h3>
             <div className="collab-details-list">
               <div className="collab-item">
-                <strong>Şeffaflık ve Adil Paylaşım:</strong> Sürpriz kesintiler, gizli listeleme ücretleri veya haksız rekabete zorlayan reklam modelleri yoktur. Her paydaşın kazancını maksimize etmeyi hedefleriz.
+                <strong>{t('collaboration.prin1Title')}:</strong> {t('collaboration.prin1Desc')}
               </div>
               <div className="collab-item">
-                <strong>Uzmanlığa Saygı:</strong> Bisiklet sadece bir donanım değil, aynı zamanda bir mühendislik kültürüdür. Platformumuzda sadece işin ehli, yetkili ve referanslı dükkanlar yer alabilir.
+                <strong>{t('collaboration.prin2Title')}:</strong> {t('collaboration.prin2Desc')}
               </div>
               <div className="collab-item">
-                <strong>Veri Güvenliği ve Mülkiyet:</strong> Müşteriniz sizin müşterinizdir. Verilerinizi sizin aleyhinize pazarlama yapmak için asla kullanmayız.
+                <strong>{t('collaboration.prin3Title')}:</strong> {t('collaboration.prin3Desc')}
               </div>
             </div>
           </div>
 
           {/* İşleyiş Yapısı */}
           <div className="collab-section">
-            <h3>İşleyiş Yapısı</h3>
+            <h3>{t('collaboration.title2')}</h3>
+            <div className="survey-row" style={{ marginBottom: '24px' }}>
+              <p>{t('collaboration.flowDesc1')}</p>
+              <p>
+                {t('collaboration.flowDesc2')} {t('collaboration.flowDesc2Part2')} <span style={{ color: "var(--color-primary)", textDecoration: "underline", cursor: "pointer" }} onClick={(e) => { e.preventDefault(); setShowSlides(true); document.getElementById('sunum-section')?.scrollIntoView({ behavior: 'smooth' }); }}>{t('collaboration.flowDesc2Link')}</span> {t('collaboration.flowDesc2Part3')}
+              </p>
+              <p>{t('collaboration.flowDesc3')}</p>
+            </div>
             <div className="collab-details-list">
               <div className="collab-item">
-                <strong>Katılım Desteği:</strong> Sisteme kaydınızın ardından, ürün yükleme ve tüm diğer süreçlerde yanınızdayız.
+                <strong>{t('collaboration.flow1Title')}:</strong> {t('collaboration.flow1Desc')}
               </div>
               <div className="collab-item">
-                <strong>Stok ve Takvim Kontrolü:</strong> Kendi paneliniz üzerinden stoklarınızı anlık günceller, tamir/bakım randevusu için uygunluk takviminizi belirlersiniz.
+                <strong>{t('collaboration.flow2Title')}:</strong> {t('collaboration.flow2Desc')}
               </div>
               <div className="collab-item">
-                <strong>Otomatik Hakediş (Split Payment):</strong> Sipariş tamamlandığında platform komisyonu ayrılır ve hakedişiniz doğrudan banka hesabınıza aktarılır. Muhasebe karmaşası yaşamazsınız.
+                <strong>{t('collaboration.flow3Title')}:</strong> {t('collaboration.flow3Desc')}
               </div>
             </div>
           </div>
 
           {/* Yönetim Yapısı */}
           <div className="collab-section">
-            <h3>Yönetim Yapısı</h3>
+            <h3>{t('collaboration.title3')}</h3>
             <div className="collab-details-list">
               <div className="collab-item">
-                <strong>Merkeziyetsiz ve Katılımcı Otonomi:</strong> Bicylium, sadece tek bir merkezin kar aldığı bir tekel olarak işlemez. Gelecek vizyonumuzda, platformun kurallarının (komisyon oranları, eklenecek yeni özellikler, uyuşmazlık çözümleri) aktif mağazaların katılımıyla belirlediği, dayanışma kooperatifi ruhuyla çalışan bir yapı hedeflenmektedir.
+                <strong>{t('collaboration.mgmtTitle')}:</strong> {t('collaboration.mgmtDesc')}
               </div>
             </div>
           </div>
 
           {/* Şartlar ve Koşullar */}
           <div className="collab-section">
-            <h3>Şartlar ve Koşullar</h3>
+            <h3>{t('collaboration.title4')}</h3>
             <ul className="collab-bullets">
-              <li>Sadece ticari unvana sahip resmi bisiklet dükkanları ve atölyeleri platforma katılabilir. (Bireysel ikinci el satış C2C şimdilik kapalıdır).</li>
-              <li>Satıcı, ekosistemdeki fiyatlandırmasında "Adil Ticaret" kurallarına (fahiş fiyat uygulamamaya) uymayı taahhüt eder.</li>
-              <li>Sistem üzerinden alınan bakım/servis randevularında müşteri memnuniyeti, platformun genel kalite puanını belirler.</li>
+              <li>{t('collaboration.term1')}</li>
+              <li>{t('collaboration.term2')}</li>
+              <li>{t('collaboration.term3')}</li>
             </ul>
           </div>
 
           {/* Sunumu İnceleyin */}
-          <div className="collab-section">
-            <h3>Sunumu İnceleyin</h3>
+          <div className="collab-section" id="sunum-section">
+            <h3>{t('collaboration.title5')}</h3>
             <p style={{ color: 'var(--color-dark-grey)', marginBottom: '24px' }}>
-              Pazar araştırmaları sonucu hazırladığımız ve size girişim hakkında daha fazla detay sağlayan sunumu inceleyebilirsiniz.
+              {t('collaboration.presDesc')}
             </p>
             <button className="btn btn-primary" onClick={() => setShowSlides(!showSlides)}>
-              İncele
+              {t('collaboration.presBtn')}
             </button>
-            
+
             {showSlides && (
               <div className="collab-presentation-wrapper">
                 <div className="slides-iframe-container">
-                  <iframe 
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vRMl8CoBcBipJdk6mwqTsjOC2tJpv1JzwWiGXWr8ftef4mFwyh9ZGlao30L2suX42hyuEVsdupotNST/pubembed?start=false&loop=false&delayms=3000" 
-                    frameBorder="0" 
+                  <iframe
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vRMl8CoBcBipJdk6mwqTsjOC2tJpv1JzwWiGXWr8ftef4mFwyh9ZGlao30L2suX42hyuEVsdupotNST/pubembed?start=false&loop=false&delayms=3000"
+                    frameBorder="0"
                     allowFullScreen={true}
                     title="Bicylium Sunumu"
                   ></iframe>
@@ -88,28 +97,24 @@ const Collaboration = () => {
 
           {/* Ankete Katılın */}
           <div className="collab-section">
-            <h3>Ankete Katılın</h3>
-            
+            <h3>{t('collaboration.title6')}</h3>
+
             <div className="survey-row">
-              <p>
-                Ankete katılım Bicylium’un dayanışmacı misyonunu desteklediğini gösteren bir niyet mektubu niteliğindedir. Platformumuzu oluştururken sizlerin görüş ve önerileri işimizi geliştirecektir. Ayrıca bisikletçilerden oluşan ağımızı büyüterek dayanışmamızı güçlendirmektedir. Katılımızın için şimdiden teşekkür ederiz.
-              </p>
+              <p>{t('collaboration.survey1Desc')}</p>
               <a href="https://forms.gle/LMZyus92V3AVLVdx9" target="_blank" rel="noreferrer" className="btn btn-primary">
-                Mağaza Anketi
+                {t('collaboration.survey1Btn')}
               </a>
             </div>
 
             <div className="survey-row" style={{ marginTop: '40px' }}>
-              <p>
-                Müşterilere yönelik hazırladığımız ankete katılarak Bicylium’un alışveriş tecrübesini iyileştirmemize ve müşteri odaklı olarak iyileştirmemize yardımcı olabilirsiniz. Vakit ayırdığınız için teşekkür ederiz.
-              </p>
+              <p>{t('collaboration.survey2Desc')}</p>
               <a href="https://forms.gle/1Fbxkv2PUJ3dZqia6" target="_blank" rel="noreferrer" className="btn btn-primary">
-                Müşteri Anketi
+                {t('collaboration.survey2Btn')}
               </a>
             </div>
-            
+
             <div className="collab-bottom-link">
-              veya <a href="/iletisim">iletişim sayfamızdan form gönderebilirsiniz.</a>
+              {t('collaboration.surveyOr1')} <a href="/iletisim">{t('collaboration.surveyOr2')}</a>
             </div>
           </div>
 

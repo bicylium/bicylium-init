@@ -417,6 +417,7 @@
 }
 
 .collab-cta h6 {
+  font-family: var(--font-mono);
   font-size: 16px;
   font-weight: 600;
   color: var(--color-dark-grey);
@@ -503,6 +504,11 @@
   font-size: 14px;
   color: var(--color-dark-grey);
   line-height: 1.5;
+}
+
+.blog-view-all {
+  margin-top: 40px;
+  text-align: center;
 }
 
 /* Newsletter Section */
