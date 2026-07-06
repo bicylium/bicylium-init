@@ -122,7 +122,7 @@
   .nav {
     position: fixed;
     top: 80px;
-    left: 100%;
+    left: 0;
     width: 100%;
     height: calc(100vh - 80px);
     background-color: var(--color-white);
@@ -131,11 +131,20 @@
     padding-top: 40px;
     gap: 40px;
     box-shadow: -4px 0 10px rgba(0, 0, 0, 0.05);
-    transition: left 0.3s ease-in-out;
+    
+    /* Fix for horizontal overflow: Fade in and slide down instead of left/right slide */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   }
 
   .nav.open {
-    left: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .lang-btn {
