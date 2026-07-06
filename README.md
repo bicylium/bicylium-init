@@ -1,49 +1,18 @@
-# Bicylium Landing Page
+# Bicylium
 
-Bicylium, Türkiye'deki yerel bisiklet dükkanlarını dijital dünyaya taşıyan ve onları bisiklet kullanıcıları ile buluşturan dikey, çok satıcılı (multi-vendor) bir ekosistem platformudur. Bu proje, projenin felsefesini, ilkelerini, işleyiş modelini ve vizyonunu anlatan premium, modern ve duyarlı (responsive) bir landing page (açılış sayfası) mimarisidir.
+## Proje Hakkında
+Bicylium, Türkiye'deki yerel bisiklet dükkanlarını, ustaları ve atölyeleri dijital dünyaya taşıyarak onları bisiklet kullanıcılarıyla güvenle buluşturan dikey ve çok satıcılı (multi-vendor) bir ekosistem platformudur. Bisiklet tutkunlarının ihtiyaç duydukları her türlü ürüne ve özel hizmete (bakım, onarım, kişiselleştirme vb.) tek bir noktadan ulaşmasını hedefler. Aynı zamanda yerel işletmelere modern bir dijital vitrin sağlayarak, sürdürülebilir ve adil bir iş modeli sunar.
 
-## Özellikler
+## Sayfaların Amacı
+Bu proje kapsamında hazırlanan sayfalar, henüz tam kapsamlı pazar yeri açılmadan önce Bicylium'un felsefesini, ilkelerini ve vizyonunu kitlelere aktarmak için kurgulanmış bir **açılış ve tanıtım (landing page)** mimarisidir. Ziyaretçilerin sadece bir platformu değil, arkasındaki tutkuyu ve topluluk bilincini hissetmeleri hedeflenmiştir.
 
-- **Modern ve Şık Tasarım:** "Design System" ilkelerine bağlı kalınarak oluşturulmuş minimalist, göz yormayan, premium bir UI.
-- **Performanslı ve Esnek:** Saf CSS (Vanilla CSS) ve React ile, dış kütüphanelere en az düzeyde bağımlı, performans odaklı geliştirme.
-- **Gelişmiş CSS Grid ve Flexbox Yapıları:** Ürün, hizmet ve blog bölümleri için karmaşık dizilimlerin (layout) sorunsuz yönetimi.
-- **Global Stil Jetonları (Tokens):** Tüm sayfalardaki boşluklar (section-gap) ve renk paletleri merkezi olarak `index.css` üzerinden yönetilir.
+Bu doğrultuda sayfaların temel işlevleri şunlardır:
 
-## Sayfalar
+- **Ana Sayfa:** Bicylium'un ne olduğunu, kimlere hitap ettiğini ve sunduğu değer önerisini özetler. Kullanıcıları platformun kalitesine ikna edecek premium bir karşılama deneyimi sunar.
+- **Hakkında:** Projenin çıkış hikayesini, amacını ve sektörde çözmeyi hedeflediği sorunları anlatır. Platformun arkasındaki vizyonu şeffaf bir şekilde paylaşır.
+- **İş Birliği:** Ekosistemin asıl aktörleri olan mağaza sahipleri ve ustalar için bir davet niteliğindedir. Platforma katılım süreçlerini, işleyiş kurallarını ve birlikte büyüme fırsatlarını detaylandırır.
+- **Blog (Dinamik İçerik):** Contentful entegrasyonu ile desteklenen blog yapısı, bisiklet kültürü, teknik bilgiler ve platform güncellemeleri hakkında zengin içerikler sunarak toplulukla bağı güçlendirir.
+- **İletişim:** Kullanıcıların, satıcıların ve potansiyel iş ortaklarının doğrudan temas kurabileceği güvenilir bir köprü oluşturur.
 
-- **Ana Sayfa:** Vizyon, ürün ızgaraları, servis tanıtımı, blog yazıları ve bülten (newsletter) abonelik modülü.
-- **Hakkında:** Bicylium'un çıkış hikayesi, felsefesi ve iş modelinin detayları.
-- **İş Birliği:** Mağaza sahipleri ve ustalar için platforma katılım şartları, işleyiş prensipleri ve niyet mektubu anketleri.
-- **İletişim:** Ziyaretçilerin doğrudan iletişim kurabileceği basit ve şık bir form yapısı.
-
-## Kullanılan Teknolojiler
-
-- **React.js** (Bileşen tabanlı mimari)
-- **Vite** (Hızlı derleme ve geliştirme ortamı)
-- **Vanilla CSS** (Özel CSS değişkenleri ve gelişmiş seçiciler)
-
-## Kurulum ve Çalıştırma
-
-Projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
-
-1. Depoyu bilgisayarınıza indirin (clone):
-   ```bash
-   git clone https://github.com/bicylium/bicylium-init.git
-   ```
-
-2. Proje dizinine gidin:
-   ```bash
-   cd "Bicylium Landing Page"
-   ```
-
-3. Gerekli bağımlılıkları yükleyin:
-   ```bash
-   npm install
-   ```
-
-4. Geliştirme sunucusunu başlatın:
-   ```bash
-   npm run dev
-   ```
-
-5. Tarayıcınızda açılan bağlantıyı (genellikle `http://localhost:5173`) takip ederek projeyi görüntüleyin.
+## Tasarım ve Mimari Yaklaşım
+"Design System" ilkelerine sadık kalınarak, dış kütüphanelere minimum bağımlılıkla (React & Vanilla CSS) geliştirilen bu yapıda premium bir his yaratmak ön planda tutulmuştur. Sayfalar, özel renk paletleri, modern tipografi, esnek ızgara (grid) yapıları ve çoklu dil (i18n) desteğiyle hem görsel hem de performans açısından en üst düzeyde olacak şekilde kurgulanmıştır.
