@@ -107,3 +107,78 @@
 .collab-bottom-link a:hover {
   color: var(--color-orange);
 }
+
+/* New Launch Section Layout */
+.collab-launch-section {
+  padding-top: 40px;
+}
+
+.collab-step-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.collab-step-icon-wrapper {
+  flex: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.step-number {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 800;
+  position: absolute;
+  top: -10px;
+  right: 20%;
+}
+
+.collab-step-row.left-align .step-number {
+  left: 20%;
+  right: auto;
+}
+
+.collab-step-content {
+  flex: 1.2;
+}
+
+@media (max-width: 768px) {
+  .collab-step-row.right-align,
+  .collab-step-row.left-align {
+    flex-direction: column;
+    text-align: center !important;
+    gap: 40px;
+  }
+  
+  .collab-step-content {
+    order: 2;
+  }
+  
+  .collab-step-icon-wrapper {
+    order: 1;
+  }
+  
+  .collab-step-content .text-right,
+  .collab-step-content .text-left {
+    text-align: center !important;
+  }
+
+  .step-number {
+    right: 15%;
+  }
+  .collab-step-row.left-align .step-number {
+    left: 15%;
+  }
+}
+

@@ -114,6 +114,15 @@ h6 {
   color: var(--color-black);
 }
 
+.subtitle-mono {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-dark-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 a {
   color: var(--color-black);
   text-decoration: underline;
@@ -123,6 +132,12 @@ a {
 a:hover {
   color: var(--color-dark-grey);
 }
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.bg-black { background-color: var(--color-black); color: var(--color-white); }
 
 .container {
   max-width: 1080px;
