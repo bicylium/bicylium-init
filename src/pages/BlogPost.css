@@ -99,3 +99,28 @@
   padding: 100px 0;
   color: var(--color-dark-grey);
 }
+
+.blog-post-image-wrapper {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-post-content img.blog-post-image {
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  width: 100%;
+  object-fit: cover;
+  margin: 0; /* Overrides the generic margin on .blog-post-content img */
+}
+
+.blog-post-image-caption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+  text-align: center;
+  padding: 0 1rem;
+}

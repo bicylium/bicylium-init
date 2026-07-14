@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { contentfulClient } from '../contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
 import { useTranslation } from 'react-i18next';
 import './BlogPost.css';
 
@@ -49,6 +50,55 @@ const BlogPost = () => {
   const imageUrl = goruntu?.fields?.file?.url;
   const authorName = yazar?.fields?.isim || 'Bicylium';
 
+  const renderOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+        const contentType = node.data?.target?.sys?.contentType?.sys?.id;
+        
+        if (contentType === 'helperImageWrapper') {
+          const fields = node.data?.target?.fields || {};
+          const imageUrl = fields.image?.fields?.file?.url;
+          const altText = fields.image?.fields?.title || fields.caption || '';
+          const size = fields.size;
+          const caption = fields.caption;
+
+          let sizeClass = '';
+          let inlineMaxWidth = '100%';
+          
+          if (size === 'small') {
+            sizeClass = 'max-w-xs';
+            inlineMaxWidth = '320px';
+          } else if (size === 'medium') {
+            sizeClass = 'max-w-2xl';
+            inlineMaxWidth = '672px';
+          } else if (size === 'large') {
+            sizeClass = 'max-w-5xl';
+            inlineMaxWidth = '1024px';
+          }
+
+          if (!imageUrl) return null;
+
+          return (
+            <div className="blog-post-image-wrapper">
+              <img
+                src={imageUrl}
+                alt={altText}
+                className="blog-post-image"
+                style={{ maxWidth: inlineMaxWidth, width: '100%' }}
+              />
+              {caption && (
+                <p className="blog-post-image-caption">
+                  {caption}
+                </p>
+              )}
+            </div>
+          );
+        }
+        return null;
+      }
+    }
+  };
+
   return (
     <div className="blog-post-page">
       <div className="blog-post-hero">
@@ -67,7 +117,7 @@ const BlogPost = () => {
       
       <div className="container">
         <article className="blog-post-content">
-          {icerik ? documentToReactComponents(icerik) : <p>{post.fields.ozet}</p>}
+          {icerik ? documentToReactComponents(icerik, renderOptions) : <p>{post.fields.ozet}</p>}
         </article>
       </div>
     </div>
