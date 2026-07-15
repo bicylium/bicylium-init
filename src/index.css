@@ -16,7 +16,7 @@
 
   --section-padding: 100px;
   --section-gap: 60px; /* Global ayar: sayfalar içi blok boşlukları */
-  --border-radius: 4px; 
+  --border-radius: 0px; 
   --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -79,9 +79,9 @@ h5 {
 }
 
 h6 {
-  font-family: var(--font-main);
-  font-size: 18px;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 600; /* Geist Mono Semibold */
   line-height: 1.5;
   color: var(--color-black);
 }
@@ -123,6 +123,20 @@ h6 {
   letter-spacing: 0.05em;
 }
 
+.body-mono {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-black);
+}
+
+.body-small-mono-bold {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500; /* Geist Mono Medium */
+  color: var(--color-black);
+}
+
 a {
   color: var(--color-black);
   text-decoration: underline;
@@ -131,6 +145,35 @@ a {
 
 a:hover {
   color: var(--color-dark-grey);
+}
+
+/* Tag / Badge Styles */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500; /* Geist Mono Medium */
+  line-height: 1;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+}
+
+.tag-green {
+  background-color: var(--color-light-green);
+  color: var(--color-black);
+}
+
+.tag-red {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.tag-orange {
+  background-color: var(--color-orange);
+  color: var(--color-black);
 }
 
 /* Utility Classes */
